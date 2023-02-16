@@ -1,0 +1,65 @@
+<br>
+<h3 class="bg-warning text-center">Delivery Registiration Page</h3>
+<br><br>
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100"> 
+
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
+          <form [formGroup]="deliveryForm" (ngSubmit)="DeliveryRegister()">
+            
+            <div class="form-outline mb-4">
+              <input type="text" id="first_name" class="form-control form-control-lg"
+                placeholder="Delivery Name" 
+                formControlName="first_name"
+                [(ngModel)]="firstName"/>
+            </div>
+
+            <div class="form-outline mb-4">
+                <input type="text" id="last_name" class="form-control form-control-lg"
+                  placeholder="Delivery Last Name"
+                  formControlName="last_name"
+                  [(ngModel)]="lastName" />
+              </div>
+  
+            <div class="form-outline mb-3">
+              <input type="password" id="password" class="form-control form-control-lg"
+                placeholder="Enter password"
+                formControlName="password"
+                [(ngModel)]="password" />
+            </div>
+
+            <div class="form-outline mb-4">
+              <input type="text" id="number" class="form-control form-control-lg"
+                placeholder="Number"
+                formControlName="number"
+                [(ngModel)]="number" />
+            </div>
+
+              <div class="form-outline mb-4">
+                <input type="email" id="email" class="form-control form-control-lg"
+                  placeholder="Delivery email" 
+                  formControlName="email"
+                  [(ngModel)]="email"/>
+              </div>
+  
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button class="btn btn-primary"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;" 
+                > DeliveryRegister</button>
+            </div>
+            
+            </form>
+
+
+            <br>
+            <div class="text-left" style="float: left;"> 
+              <img src="assets/images/login_img.jpg" class="rounded float-start" width="500" height="400">
+              
+             </div>
+             
+        </div>
+      </div>
+    </div>
+   

@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Restaurant Application </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <button class="nav-link active" aria-current="page" 
+            (click)="DeliveryMenu()" 
+            >| Delivery Menu |</button>
+            <!-- eğer login ise delivery-mainmenu git-->
+            <!-- önce delivery login page göster sonra
+               şiparişler listesi göster
+                
+              -->
+          </li>
+          <li class="nav-item">
+            <button class="nav-link active"  
+            (click)="RestaurantManagerMenu()"
+            >| Restaurant Manager Menu |</button>
+            <!-- eğer login ise restaurant-mainmenu git-->
+            <!-- önce restaurant manager login page göster sonra 
+                kendi restaurant menü listesi göster (restaurant-mainmenu)
+                restaurant'a ait şipariş listesini göster
+            -->
+          </li>
+          <li class="nav-item">
+            <button class="nav-link active" 
+             (click)="CustomerMenu()"
+             >| Customer Menu |</button>
+            <!-- eğer login ise customer-mainmenu git-->
+            <!-- önce customer manager login page göster customer-login
+               sonra restaurantlar listesi göster restaurant-list
+                önceki verdiği sparişlerin listesini göster. (customer-mainmenu)
+            -->
+          </li>
+
+          <li>
+            <p class="fw-bold" style="color: green; position: absolute; right: 120px;"
+            >{{first_name}}</p>
+          </li>
+
+          <li>
+          <button class="btn btn-dark" 
+          style="position: absolute; right: 10px;"
+          (click)="Login()" *ngIf="login"
+           >Login</button>
+
+          </li>          
+          
+          <li>
+            <button class="btn btn-danger" 
+            style="position: absolute; right: 10px;"
+            (click)="Logout()" *ngIf="logout" 
+             >Logout</button>
+            </li>
+        </ul>
+      </div>
+   
+    </div>
+  </nav>
+

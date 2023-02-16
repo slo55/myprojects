@@ -1,0 +1,83 @@
+<br>
+<h3 class="bg-warning text-center">Restaurant Main Menu</h3>
+<br>
+
+
+<div>
+    <form class="row g-3" [formGroup]="restaurantUpdateForm">
+        <div class="col-md-4">
+          
+            <label for="validationCustom01" class="form-label">Restaurant Name</label>
+          <input type="text" class="form-control" id="first_name" 
+          value="{{first_name}}" [(ngModel)]="first_name" formControlName="first_name">
+    
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Restaurant password</label>
+          <input type="text" class="form-control" id="password" value="{{password}}"
+          formControlName="password" [(ngModel)]="password">
+    
+        </div>
+        
+        <div class="col-md-4">
+          <label for="validationCustom03" class="form-label">Restaurant Number</label>
+          <input type="text" class="form-control" id="number" value="{{number}}"
+          [(ngModel)]="number" formControlName="number">
+    
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom03" class="form-label">Restaurant Owner</label>
+          <input type="text" class="form-control" id="last_name" value="{{last_name}}"
+          [(ngModel)]="last_name" formControlName="last_name">
+    
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom03" class="form-label">Restaurant Email</label>
+          <input type="text" class="form-control" id="email" value="{{email}}"
+          [(ngModel)]="email" formControlName="email">
+    
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom03" class="form-label">Restaurant image</label>
+          <input type="text" class="form-control" id="image" value="{{image}}"
+          [(ngModel)]="image" formControlName="image">
+    
+        </div>
+    
+    
+    
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit" (click)="updateRestaurant()">Update Restaurant</button>
+        </div>
+      </form>
+    </div>
+    
+    <br><br>
+    
+    <table class="table table-success table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Order Name</th>
+            <th scope="col">Order Last Name</th>
+            <th scope="col">Order Adress</th>
+            <th scope="col">Order Number</th>
+            <th scope="col">Order Inhoud</th>
+            <th scope="col">Restaurant ID</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of orders">
+            <th scope="row">{{item.id}}</th>
+
+            <td>{{item.last_name}}</td>
+            <td>{{item.first_name}}</td>
+            <td>{{item.adress}}</td>
+            <td>{{item.number}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.restaurant_id}}</td>
+            
+          </tr>
+        </tbody>
+      </table>

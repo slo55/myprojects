@@ -1,0 +1,21 @@
+
+<br>
+<h3 class="bg-warning text-center">Restaurant List</h3>
+<br>
+
+<div class="card" style="margin: 5mm; width: 18rem; float:left" *ngFor="let r of restaurants">
+    <img src="assets/images/{{r.image}}" class="card-img-top" >
+    <div class="card-body">
+      <h5 class="card-title">{{r.first_name}} Restaurant</h5>
+      <p class="card-text">NO: {{r.number}}</p>
+      <p class="card-text">EMAIL: {{r.email}}</p>
+    </div>
+    <ul class="list-group list-group-flush" *ngFor="let menu of McRonaldsMenu">
+      <li class="list-group-item">{{menu}}</li>
+    </ul>
+    <div class="card-body">
+        <button class="btn btn-dark" style="float:right"
+        (click)="Order(r.id)"> Order Now </button>
+        <!-- customer-mainmenu/:id olarak gelmesi lazım-->
+    </div>
+  </div>

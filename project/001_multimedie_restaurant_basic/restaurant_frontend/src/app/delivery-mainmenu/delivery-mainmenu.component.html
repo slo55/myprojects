@@ -1,0 +1,59 @@
+<br>
+<h3 class="bg-warning text-center">Delivery Main Menu </h3>
+<br>
+
+<div>
+<form class="row g-3" [formGroup]="deliveryForm">
+    <div class="col-md-4">
+      
+        <label for="validationCustom01" class="form-label">Delivery name</label>
+      <input type="text" class="form-control" id="first_name"
+       value="{{first_name}}" formControlName="first_name" [(ngModel)]="first_name">
+
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustom02" class="form-label">Delivery Last name</label>
+      <input type="text" class="form-control" id="last_name" value="{{last_name}}"
+      formControlName="last_name" [(ngModel)]="last_name">
+
+    </div>
+    
+    <div class="col-md-6">
+      <label for="validationCustom03" class="form-label">Delivery Number</label>
+      <input type="text" class="form-control" id="number" 
+      formControlName="number" value="{{number}}" [(ngModel)]="number">
+    </div>
+
+
+
+
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit" (click)="UpdateDelivery()">Update Delivery</button>
+    </div>
+  </form>
+</div>
+
+<br><br>
+<h3>Waiting to deliver...⏱</h3>
+
+  <div class="col-12" *ngFor="let item of orderToDeliveries">
+
+    <div class="card" style="margin: 5mm; width: 18rem; float: right;">
+      <div class="card-body">
+  
+        <h5 class="card-title">{{item.first_name}}</h5>
+      
+        <h6 class="card-subtitle mb-2 text-muted">{{item.last_name}}</h6>
+
+        <h6 class="card-subtitle mb-2 text-muted"> Order : {{item.description}}</h6>
+
+        <h6 class="card-subtitle mb-2 text-muted" style="color: yellow;">Status : {{item.status}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted"> Adress : {{item.adress}}</h6>
+      
+      
+        <button type="button" class="btn btn-warning"
+        [routerLink]="['/delivery-mainmenu']">To Deliver</button>
+      
+      </div>
+    </div>
+</div>
