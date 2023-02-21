@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Films</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <th:block th:include="fragments/cdn.html :: head-cdn"></th:block>
+    <th:block th:include="fragments/custom.html :: head-custom"></th:block>
+</head>
+<body>
+<header th:replace="fragments/header.html :: header">
+</header>
+<div class="container-fluid">
+    <div class="container min-vh-100 px-2">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <h1 class="text-center">All actors in database:</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <form>
+                    <label for="search-bar">Search:</label>
+                    <input type="text" id="search-bar" name="searchText">
+                    <button type="submit" class="btn btn-primary">🔎</button>
+                </form>
+                <p th:if="${param.searchText} != null">Search results for: "<span
+                        th:text="${param.searchText}"></span>"</p>
+            </div>
+            <div class="col-6 d-flex align-items-start">
+                <a th:href="@{/actor/new}" class="btn btn-primary ms-auto">+ New</a>
+            </div>
+        </div>
+        <div class="row">
+            <div th:each="actor : ${actors}" class="col-12 col-sm-6 col-md-4 col-lg-3 text-center mb-4">
+                <a th:href="'/actor/' + ${actor.id}">
+                    <div class="actor-profile-card">
+                        <div class="actor-profile-card-img"
+                             th:style="'background-image: url(' + ${actor.photoUrl} + ');'"></div>
+                        <div class="actor-profile-card-body px-4 py-4">
+                            <h2 th:text="${actor.name}" class="text-start mb-3"></h2>
+                            <h6 th:text="'Age: ' + ${actor.calcAge()}" class="text-start"></h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:include="fragments/cdn.html :: script-cdn"></th:block>
+</body>
+</html>

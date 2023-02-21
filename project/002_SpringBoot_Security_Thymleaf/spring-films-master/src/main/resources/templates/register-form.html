@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Film Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <th:block th:include="fragments/cdn.html :: head-cdn"></th:block>
+  <th:block th:include="fragments/custom.html :: head-custom"></th:block>
+</head>
+<body>
+<header th:replace="fragments/header.html :: header">
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Please Register Here</h1><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+
+      <form method="post" th:object="${user}">
+
+        <label for="email" with="300">Email       : </label>
+        <input type="email" id = "email" th:field="*{email}">
+        
+        <label for="password" with="300">Password : </label>
+        <input type="password" id = "password" th:field="*{password}">
+
+        <label for="cpassword" with="300">Confirm Password : </label>
+        <input type="password" id = "cpassword" name="cpassword">
+
+        <br><br>
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+<th:block th:include="fragments/cdn.html :: script-cdn"></th:block>
+</body>
+</html>
