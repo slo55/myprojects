@@ -1,0 +1,36 @@
+
+
+<header th:fragment="header" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+            </a>
+
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a th:href="${'/'}" class="nav-link px-6 link-dark">Home</a></li>
+                <li><a th:href="${'/profile'}" class="nav-link px-6 link-dark">My Account</a></li>
+                <li><a th:href="${'/send-money'}" class="nav-link px-6 link-dark">Send Money</a></li>
+                <li><a th:href="${'/aboutMe'}" class="nav-link px-6 link-dark">About Me</a></li>
+            </ul>
+
+            <div class="col-md-3 text-end">
+                <div class="navbar-nav ms-auto">
+
+                    <div sec:authorize="!isAuthenticated()">
+                        <a   class="btn btn-warning mx-2" th:href="@{'/register'}">Register</a>
+                        <a   class="btn btn-success mx-2" th:href="@{'/login'}">Login</a>
+                    </div>
+
+                    <div sec:authorize="isAuthenticated()">
+                        <a  th:text="'Hi, ' + ${#authentication.name}" th:href="${'/profile'}"></a>
+                        <a  class="btn btn-danger mx-2" th:href="@{'/logout'}">Log Out</a>
+                    </div>
+            </div>
+            </div>
+        </header>
+    </div>
+
+
+</header>

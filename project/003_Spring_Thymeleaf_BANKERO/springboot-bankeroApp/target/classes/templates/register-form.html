@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <th:block th:include="fragments/cdn.html :: head-cdn"></th:block>
+    <title>Bankero App</title>
+    <th:block th:include="fragments/cdn.html :: bootstrapt"></th:block>
+</head>
+<body class="text-center">
+<th:block th:include="fragments/header.html"></th:block>
+
+<main class="form-signin">
+
+    <form method="post" th:object="${user}">
+        <h1 class="h3 mb-3 fw-normal">Please Register</h1>
+
+        <div class="form-floating">
+            <input type="text" class="form-control form-control-lg" id="iban" name="IBAN" th:field="*{IBAN}"
+                   placeholder="BE68 5390 0754 7034">
+            <label for="iban">IBAN</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="password" class="form-control form-control-lg" id="password" th:field="*{password}"
+                   placeholder="Password">
+            <label for="password">Password</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="text" class="form-control form-control-lg" id="fullName" th:field="*{fullName}"
+                   placeholder="Full Name">
+            <label for="fullName">Full Name</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="text" class="form-control form-control-lg" id="country" th:field="*{country}"
+                   placeholder="Country">
+            <label for="country">Country</label>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+
+    </form>
+</main>
+
+<th:block th:include="fragments/footer.html :: footer"></th:block>
+<th:block th:include="fragments/cdn.html :: script-cdn"></th:block>
+
+</body>
+</html>
