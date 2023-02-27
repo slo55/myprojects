@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <th:block th:include="fragments/cdn.html :: head-cdn"></th:block>
+    <title>Bankero App</title>
+    <th:block th:include="fragments/cdn.html :: bootstrapt"></th:block>
+</head>
+<body class="text-center">
+<th:block th:include="fragments/header.html"></th:block>
+<h1 style="font-size: 100px; color: darkgreen " th:text="${user.getBalance()} + '€'"> </h1>
+<div class="container-fluid">
+    <div class="container">
+        <h1 class="text-white text-md-center">Account</h1>
+        <div class="row">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5 mx-md-auto">
+                <div class="card account-profile-card">
+                    <div class="card-header py-3 d-flex align-items-center">
+                        <div class="username">
+                            <a th:href="@{/profile/edit}" class="btn btn-primary">Edit Account</a>
+                            <a th:href="@{/profile/edit/password}" class="btn btn-secondary">Change password</a>
+                        </div>
+
+                    </div>
+                    <div class="card-body pt-2">
+                        <div class="field-list">
+                            <div class="field mt-4 w-100 d-flex justify-content-between">
+                                <div class="constrained-row">
+                                    <h5>IBAN</h5>
+                                    <div class="email-inner-row inner-row" th:text="${user.getIBAN()}"></div>
+                                </div>
+                            </div>
+                            <div class="field mt-4 w-100 d-flex justify-content-between">
+                                <div class="constrained-row">
+                                    <h5>Full Name</h5>
+                                    <div class="last-name-inner-row inner-row" th:text="${user.fullName}"></div>
+                                </div>
+                            </div>
+                            <div class="field mt-4 w-100 d-flex justify-content-between">
+                                <div class="constrained-row">
+                                    <h5>Country</h5>
+                                    <div class="last-name-inner-row inner-row" th:text="${user.country}"></div>
+                                </div>
+                            </div>
+                            <div class="field mt-4 w-100 d-flex justify-content-between">
+                                <div class="constrained-row">
+                                    <h5>Roles</h5>
+                                    <div class="last-name-inner-row inner-row" th:each="role : ${user.roles}" th:text="${role.name}"></div>
+                                </div>
+                            </div>
+
+                            <div class="field mt-4 w-100 d-flex justify-content-between">
+                                <div class="constrained-row">
+                                    <h5>Transfers</h5>
+                                    <div class="last-name-inner-row inner-row" th:each="transfer : ${user.transferList}">
+                                        <ul class="list-group">
+                                            <li class="list-group-item" th:text="${transfer.getTransferAmount()}+ '€ ' + ' ' + ${transfer.getTransferType()}"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<th:block th:include="fragments/footer.html :: footer"></th:block>
+<th:block th:include="fragments/cdn.html :: script-cdn"></th:block>
+
+</body>
+</html>
